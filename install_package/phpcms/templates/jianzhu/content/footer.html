@@ -1,0 +1,33 @@
+<div class="foot">
+<div class="foot01">
+<div class="foot_line"><img src="{IMG_PATH}foot_line.jpg" /></div>
+<div class="yqlj">
+<div class="yqlj_top"><img src="{IMG_PATH}link_top.jpg" /></div>
+<div class="yqlj_list">
+<ul class="links">
+<!--网站友情链接-->
+{pc:link  action="type_list" siteid="$siteid" order="listorder DESC" num="10" return="dat"}
+{loop $dat $v}
+<li><a href="{$v[url]}" target="_blank title="{$v[name]}">{$v[name]}</a></li>
+{/loop}
+{/pc}
+
+</ul>
+</div>
+</div>
+<div class="note"><img src="{IMG_PATH}note_pic.jpg" width="334" height="179" border="0" usemap="#Map" />
+  <map name="Map" id="Map">
+    <area shape="rect" coords="4,125,120,163" href="/liuyan/" />
+  </map>
+</div>
+
+</div>
+<div class="foot02">
+                                      版权所有：监理部（www.jianlibu.com.cn）主营产品：<A href="{siteurl($siteid)}/"  target="_blank">不锈钢橱柜</A> <A href="{siteurl($siteid)}/"  target="_blank">不锈钢台面</A> <A href="{siteurl($siteid)}/"  target="_blank">不锈钢柜体</A> <A href="{siteurl($siteid)}"  target="_blank">不锈钢门板</A> 　地址：广东省佛山市禅城区<br />　 联系人：杜泓锦 手机：13283838311 15538183887 E-mail:jianlibu@gmail.com传真：0371-66882766
+400-168-6688  技术支持：<a>郑州新动力</a>
+<!--站点访问统计开始-->
+<!--站点访问统计结束-->
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<?php
+return array (
+  1 => 
+  array (
+    'id' => '1',
+    'content' => '啦啦啦',
+    'readpoint' => '0',
+    'groupids_view' => '',
+    'paginationtype' => '0',
+    'maxcharperpage' => '10000',
+    'template' => '',
+    'paytype' => '0',
+    'relation' => '',
+    'voteid' => '0',
+    'allow_comment' => '1',
+    'copyfrom' => '|0',
+    'catid' => '10',
+    'typeid' => '0',
+    'title' => '新闻中心 今天天气不错',
+    'style' => '',
+    'thumb' => '',
+    'keywords' => '天气',
+    'description' => '啦啦啦',
+    'posids' => '0',
+    'url' => 'http://www.cyilin.com/index.php?m=content&c=index&a=show&catid=10&id=1',
+    'listorder' => '0',
+    'status' => '99',
+    'sysadd' => '1',
+    'islink' => '0',
+    'username' => 'phpcms',
+    'inputtime' => '1488692513',
+    'updatetime' => '1488692531',
+  ),
+);
+?>

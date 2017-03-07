@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=7" />
+<title>{if isset($SEO['title']) && !empty($SEO['title'])}{$SEO['title']}{/if}{$SEO['site_title']}</title>
+<meta name="description" content="{$SEO['description']}" />
+<meta name="keywords" content="{$SEO['keyword']}" />
+<link rel="canonical" href="{siteurl($siteid)}/"/>
+<link href="{CSS_PATH}style.css" rel="stylesheet" type="text/css" />
+<link href="{CSS_PATH}style.css" rel="stylesheet" type="text/css" />
+<link href="{CSS_PATH}reset.css" rel="stylesheet" type="text/css" />
+<!--首页幻灯JS-CSS调用开始-->
+<LINK href="{CSS_PATH}alixixi.css" type=text/css rel=stylesheet>
+<SCRIPT src="{JS_PATH}jquery-2.4.2.min.js" type=text/javascript></SCRIPT>
+<SCRIPT src="{JS_PATH}alixixi.js" type=text/javascript></SCRIPT>
+<!--首页幻灯JS-CSS调用结束-->
+<base target=_blank>
+<meta name="baidu-site-verification" content="3BwIX5kQCz8fCX8d" />
+</head>
+<body bgcolor="#eaeaea">
+<div class="main01">
+<div class="top">
+<div class="logo"><img src="{IMG_PATH}logo.png" width="215" height="68" /></div>
+<div class="nav1">
+<!--网站导航调用开始-->
+<ul>
+<li id="nav01"><a href="{siteurl($siteid)}/" >首页</a></li>
+<li id="nav02"><a href="{$CATEGORYS[9][url]}">{$CATEGORYS[9]['catname']}</a></li>
+<li id="nav03"><a href="{$CATEGORYS[10][url]}">{$CATEGORYS[10]['catname']}</a></li>
+<li id="nav04"><a href="{$CATEGORYS[11][url]}">{$CATEGORYS[11]['catname']}</a></li>
+<li id="nav05"><a href="{$CATEGORYS[12][url]}">{$CATEGORYS[12]['catname']}</a></li>
+<li id="nav06"><a href="{$CATEGORYS[13][url]}">{$CATEGORYS[13]['catname']}</a></li>
+<li id="nav07"><a href="{$CATEGORYS[14][url]}">{$CATEGORYS[14]['catname']}</a></li>
+<li id="nav08"><a href="{$CATEGORYS[15][url]}">{$CATEGORYS[15]['catname']}</a></li>
+</ul>
+<!--网站导航调用结束-->
+</div>
+</div>
