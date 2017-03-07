@@ -8,7 +8,7 @@
 <div class="category">
 <div class="cate_top"><img src="<?php echo IMG_PATH;?>cate_top.jpg" /></div>
 <div class="cate_list">
-<?php if(defined('IN_ADMIN')  && !defined('HTML')) {echo "<div class=\"admin_piao\" pc_action=\"content\" data=\"op=content&tag_md5=ed71a03f817303a6a372504cfad9a4e6&action=category&catid=13&num=6&siteid=%24siteid&order=listorder+ASC\"><a href=\"javascript:void(0)\" class=\"admin_piao_edit\">修改</a>";}$content_tag = pc_base::load_app_class("content_tag", "content");if (method_exists($content_tag, 'category')) {$data = $content_tag->category(array('catid'=>'13','siteid'=>$siteid,'order'=>'listorder ASC','limit'=>'6',));}?>
+<?php if(defined('IN_ADMIN')  && !defined('HTML')) {echo "<div class=\"admin_piao\" pc_action=\"content\" data=\"op=content&tag_md5=ed71a03f817303a6a372504cfad9a4e6&action=category&catid=13&num=6&siteid=%24siteid&order=listorder+ASC\"><a href=\"javascript:void(0)\" class=\"admin_piao_edit\">编辑</a>";}$content_tag = pc_base::load_app_class("content_tag", "content");if (method_exists($content_tag, 'category')) {$data = $content_tag->category(array('catid'=>'13','siteid'=>$siteid,'order'=>'listorder ASC','limit'=>'6',));}?>
 <ul>
                         <?php $n=1;if(is_array($data)) foreach($data AS $r) { ?>
 <li><a href="<?php echo $r['url'];?>"><?php echo $r['catname'];?></a></li>
@@ -21,7 +21,7 @@
 <div class="about">
 <div class="about_top"><img src="<?php echo IMG_PATH;?>about_top.jpg" width="390" height="41" /></div>
 <div class="about_pic"><img src="<?php echo IMG_PATH;?>about_pic.jpg" /></div>
-<?php if(defined('IN_ADMIN')  && !defined('HTML')) {echo "<div class=\"admin_piao\" pc_action=\"content\" data=\"op=content&tag_md5=a997734c014a43ffa113f76b125cdc39&action=lists&catid=9&order=id+DESC&num=1&cache=3600\"><a href=\"javascript:void(0)\" class=\"admin_piao_edit\">修改</a>";}$tag_cache_name = md5(implode('&',array('catid'=>'9','order'=>'id DESC',)).'a997734c014a43ffa113f76b125cdc39');if(!$data = tpl_cache($tag_cache_name,3600)){$content_tag = pc_base::load_app_class("content_tag", "content");if (method_exists($content_tag, 'lists')) {$data = $content_tag->lists(array('catid'=>'9','order'=>'id DESC','limit'=>'1',));}if(!empty($data)){setcache($tag_cache_name, $data, 'tpl_data');}}?>
+<?php if(defined('IN_ADMIN')  && !defined('HTML')) {echo "<div class=\"admin_piao\" pc_action=\"content\" data=\"op=content&tag_md5=a997734c014a43ffa113f76b125cdc39&action=lists&catid=9&order=id+DESC&num=1&cache=3600\"><a href=\"javascript:void(0)\" class=\"admin_piao_edit\">编辑</a>";}$tag_cache_name = md5(implode('&',array('catid'=>'9','order'=>'id DESC',)).'a997734c014a43ffa113f76b125cdc39');if(!$data = tpl_cache($tag_cache_name,3600)){$content_tag = pc_base::load_app_class("content_tag", "content");if (method_exists($content_tag, 'lists')) {$data = $content_tag->lists(array('catid'=>'9','order'=>'id DESC','limit'=>'1',));}if(!empty($data)){setcache($tag_cache_name, $data, 'tpl_data');}}?>
 <?php $n=1; if(is_array($data)) foreach($data AS $n => $r) { ?>
 <div class="about_text"><a href="<?php echo $r['url'];?>"><?php echo $content;?>...</a>                         </div>
 <?php $n++;}unset($n); ?>
@@ -81,7 +81,7 @@
 <div class="new01_list">
 <!--首页新闻调用开始-->
 <ul class="topnews-ul">
-<?php if(defined('IN_ADMIN')  && !defined('HTML')) {echo "<div class=\"admin_piao\" pc_action=\"content\" data=\"op=content&tag_md5=d562d7702e8d3865465e666b15d63a6c&action=lists&catid=10&order=id+DESC&moreinfo=1&num=8&cache=3600\"><a href=\"javascript:void(0)\" class=\"admin_piao_edit\">修改</a>";}$tag_cache_name = md5(implode('&',array('catid'=>'10','order'=>'id DESC','moreinfo'=>'1',)).'d562d7702e8d3865465e666b15d63a6c');if(!$data = tpl_cache($tag_cache_name,3600)){$content_tag = pc_base::load_app_class("content_tag", "content");if (method_exists($content_tag, 'lists')) {$data = $content_tag->lists(array('catid'=>'10','order'=>'id DESC','moreinfo'=>'1','limit'=>'8',));}if(!empty($data)){setcache($tag_cache_name, $data, 'tpl_data');}}?>
+<?php if(defined('IN_ADMIN')  && !defined('HTML')) {echo "<div class=\"admin_piao\" pc_action=\"content\" data=\"op=content&tag_md5=d562d7702e8d3865465e666b15d63a6c&action=lists&catid=10&order=id+DESC&moreinfo=1&num=8&cache=3600\"><a href=\"javascript:void(0)\" class=\"admin_piao_edit\">编辑</a>";}$tag_cache_name = md5(implode('&',array('catid'=>'10','order'=>'id DESC','moreinfo'=>'1',)).'d562d7702e8d3865465e666b15d63a6c');if(!$data = tpl_cache($tag_cache_name,3600)){$content_tag = pc_base::load_app_class("content_tag", "content");if (method_exists($content_tag, 'lists')) {$data = $content_tag->lists(array('catid'=>'10','order'=>'id DESC','moreinfo'=>'1','limit'=>'8',));}if(!empty($data)){setcache($tag_cache_name, $data, 'tpl_data');}}?>
 <?php $n=1; if(is_array($data)) foreach($data AS $n => $r) { ?>
 <li><span><?php echo date('Y-m-d',$r[inputtime]);?></span><a href="<?php echo $r['url'];?>" title="<?php echo $r['title'];?>"><?php echo str_cut($r['title'],54);?></a></li>
 <?php $n++;}unset($n); ?>
@@ -96,7 +96,7 @@
 <div class="new01_list">
 <!--建筑知识首页调用开始-->
 <ul class="topnews-ul">
-<?php if(defined('IN_ADMIN')  && !defined('HTML')) {echo "<div class=\"admin_piao\" pc_action=\"content\" data=\"op=content&tag_md5=d4ca99049aa9084e6eb08e6c9a7eb832&action=lists&catid=12&order=id+DESC&num=8&cache=3600\"><a href=\"javascript:void(0)\" class=\"admin_piao_edit\">修改</a>";}$tag_cache_name = md5(implode('&',array('catid'=>'12','order'=>'id DESC',)).'d4ca99049aa9084e6eb08e6c9a7eb832');if(!$data = tpl_cache($tag_cache_name,3600)){$content_tag = pc_base::load_app_class("content_tag", "content");if (method_exists($content_tag, 'lists')) {$data = $content_tag->lists(array('catid'=>'12','order'=>'id DESC','limit'=>'8',));}if(!empty($data)){setcache($tag_cache_name, $data, 'tpl_data');}}?>
+<?php if(defined('IN_ADMIN')  && !defined('HTML')) {echo "<div class=\"admin_piao\" pc_action=\"content\" data=\"op=content&tag_md5=d4ca99049aa9084e6eb08e6c9a7eb832&action=lists&catid=12&order=id+DESC&num=8&cache=3600\"><a href=\"javascript:void(0)\" class=\"admin_piao_edit\">编辑</a>";}$tag_cache_name = md5(implode('&',array('catid'=>'12','order'=>'id DESC',)).'d4ca99049aa9084e6eb08e6c9a7eb832');if(!$data = tpl_cache($tag_cache_name,3600)){$content_tag = pc_base::load_app_class("content_tag", "content");if (method_exists($content_tag, 'lists')) {$data = $content_tag->lists(array('catid'=>'12','order'=>'id DESC','limit'=>'8',));}if(!empty($data)){setcache($tag_cache_name, $data, 'tpl_data');}}?>
 <?php $n=1; if(is_array($data)) foreach($data AS $n => $r) { ?>
 <li><span><?php echo date('Y-m-d',$r[inputtime]);?></span><a href="<?php echo $r['url'];?>" title="<?php echo $r['title'];?>"><?php echo str_cut($r['title'],54);?></a></li>
 <?php $n++;}unset($n); ?>
@@ -135,7 +135,7 @@
 <div id="indemo">
 <div id="demo1">
 <!--工程案例展示调用开始-->
-<?php if(defined('IN_ADMIN')  && !defined('HTML')) {echo "<div class=\"admin_piao\" pc_action=\"content\" data=\"op=content&tag_md5=6ca70f2da6f3859438145c8a4221e57d&action=category&catid=11&siteid=%24siteid&order=listorder+ASC\"><a href=\"javascript:void(0)\" class=\"admin_piao_edit\">修改</a>";}$content_tag = pc_base::load_app_class("content_tag", "content");if (method_exists($content_tag, 'category')) {$data = $content_tag->category(array('catid'=>'11','siteid'=>$siteid,'order'=>'listorder ASC','limit'=>'20',));}?>
+<?php if(defined('IN_ADMIN')  && !defined('HTML')) {echo "<div class=\"admin_piao\" pc_action=\"content\" data=\"op=content&tag_md5=6ca70f2da6f3859438145c8a4221e57d&action=category&catid=11&siteid=%24siteid&order=listorder+ASC\"><a href=\"javascript:void(0)\" class=\"admin_piao_edit\">编辑</a>";}$content_tag = pc_base::load_app_class("content_tag", "content");if (method_exists($content_tag, 'category')) {$data = $content_tag->category(array('catid'=>'11','siteid'=>$siteid,'order'=>'listorder ASC','limit'=>'20',));}?>
 <?php $n=1; if(is_array($data)) foreach($data AS $n => $r) { ?>
 <div style="float:left; width:200px; line-height:30px; color:#333333; margin-left:10px;  text-align:center"><a href="<?php echo $r['url'];?>" target="_blank" title="<?php echo $r['title'];?>"><img class="trans_img" onmouseover=transImg(this,0) onmouseout=transImg(this,1) src="<?php echo thumb($r['thumb'],190,140);?>" width="190" height="140" /></a><a href="<?php echo $r['url'];?>"><?php echo $r['title'];?></a></div>
 <?php $n++;}unset($n); ?>
