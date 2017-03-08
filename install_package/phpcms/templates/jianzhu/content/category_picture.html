@@ -1,87 +1,75 @@
 {template "content","header"}
-<!--main-->
-<div class="main photo-channel">
-	<div class="col-left photo-slide">
-        <div class="content">
-            <div class="FocusPic">
-            	<div id="photo-slide">
-                    <div class="changeDiv">
-					{pc:content action="position" posid="8" order="listorder DESC" sort="desc" num="9"}
-						{loop $data $r}
-                        <a href="{$r['url']}" title="{$r['title']}"><img src="{thumb($r['thumb'],435, 290)}" alt="{$r['title']}" /></a>
-						{/loop}
-					{/pc}
-                    </div>
-                </div>
+<div class="banner2">
+    <!--内容页广告开始-->
+    <!--内容页广告结束-->
+</div>
+</div>
+<div class="zy">
+<div class="zy_left">
+    <div class="zy_fl">
+    <div class="zy_fl_top">{$CAT[catname]}<span>RODUCT CATEGORY</span></div>
+        <div class="zy_fl_list">
+            <ul>
+            {pc:content action="category" catid="$catid" num="10" siteid="$siteid" }
+                {loop $data $r}
+                <li><a href="{$r[url]}">{$r[catname]} </a></li>
+                {/loop}
+                {/pc}
+            </ul>
+        </div>
+    </div>
+    <div class="zy_icon01"><a href="http://wpa.qq.com/msgrd?v=3&uin=724296815&site=qq&menu=yes"><img src="{IMG_PATH}icon01.jpg" border="0"  /></a></div>
+    <div class="zy_icon01"><img src="{IMG_PATH}icon02.jpg" /></div>
+    <div class="zy_icon01"><a href="/liuyan/"><img src="{IMG_PATH}icon03.jpg" border="0" /></a></div>
+</div>
+<div class="zy_right">
+    <div class="zy_right01">
+        <div class="zy_right_top"><div class="zy_right_top_left"><table width="100%" border="0" cellpadding="0"  cellspacing="0" align="center">
+            <tr>
+                <td  align="center" height="30"><span>NEWS</span></td>
+            </tr>
+            <tr>
+                <td align="center">{$CAT[catname]}</td>
+            </tr>
+        </table>
+    </div>
+    <div class="zy_right_top_right">您当前的位置:<a style=" color:#333; text-decoration:none;" href="{siteurl($siteid)}">首页</a> > <a  style=" color:#333; text-decoration:none;" href="{siteurl($siteid)}">{catpos($catid)}</a> > 正文</div>
+</div>
+<div class="about-mid">
+    <div class="nierong3-1">
+            <div style="text-align:center;">
+            <div>
+            {pc:content action="lists" catid="$catid" num="9" order="id DESC" page="$page"}
+                <ul class="newpro-ul">
+                {loop $data $r}
+                    <li style="width: 33.3333333333333%;height:168px;">
+                        <a href="{$r[url]}" target="_blank" title="{$r[title]}">
+                            <img src="{thumb($r[thumb],200,138)}" alt="{$r[title]}">
+                        </a><br>
+                        <span style="line-height: 30px;"><a href="{$r[url]}" target="_blank" title="{$r[title]}">{$r[title]}</a></span>
+                    </li>
+                {/loop}
+
+                </ul>
+            {/pc}
+            </div>
+            <div style="clear:both"></div>
+            <div style="padding-top:10px;font-size:14px; font-weight:bold;">
+                {$pages}
+    <!--             <a class="page" href="Index.html"><strong>上一页</strong></a> |
+    <strong><span style="color: #FF6600;font-size: 14px;">1</span></strong> |
+    <a class="page" href="Index-2.html"><strong>2</strong></a> |
+    <a class="page" href="Index-3.html"><strong>3</strong></a> |
+    <a class="page" href="Index-2.html"><strong>下一页</strong>
+    </a>  -->
             </div>
         </div>
-<script type="text/javascript"> 
-$(function(){
-	slide("#photo-slide","cur",435,324,1);
-})
-</script>
     </div>
-    <div class="photo-hots">
-        <div class="icon"></div>
-        	<h4>热点关注</h4>
-        	<ul class="content photo-hot picbig">
-			{pc:content action="hits" catid="$catid" num="6" order="monthviews DESC"}
-				{loop $data $r}
-					<li>
-                    <div class="img-wrap">
-                        <a href="{$r[url]}" title="{$r[title]}" target="_blank"><img src="{thumb($r[thumb],150,112)}" /></a>
-                    </div>
-                    <a href="{$r[url]}" title="{$r[title]}" target="_blank">{str_cut($r[title],16, '')}</a>
-                </li>
-				{/loop}
-			{/pc}
-            </ul>
     </div>
-    <div class="col-auto" style="height:336px">
-    <div class="box">
-            <h5 class="title-2">图片排行</h5>
-            <ul class="content digg">
-             {pc:content action="hits" catid="$catid" num="8" order="views DESC" cache="3600"}
-				{loop $data $r}
-					<li><a href="{$r[url]}" title="{$r[title]}" target="_blank">{$r[title]}</a></li>
-				{/loop}
-			{/pc}
-            </ul>
     </div>
-    <div class="bk6"></div>
-    <script language="javascript" src="{APP_PATH}caches/poster_js/3.js"></script>
-    </div>
-    <div class="bk10"></div>
-	{loop $array_child $cid}
-	{php $chlidids = explode(',', $CATEGORYS[$cid][arrchildid])}
-	{php unset($chlidids[array_search($cid, $chlidids)]);$n=1;}
-    <div class="photo-cat">
-        <div class="content">
-        	<h5>
-            <a href="{$CATEGORYS[$cid][url]}"><strong>{$CATEGORYS[$cid][catname]}</strong></a>
-			<span class="blue">
-            <a href="{$CATEGORYS[$cid][url]}" class="more">更多>></a>
-			{loop $chlidids $chlidid}
-            {if $n!=1} | {/if}
-				<a href="{$CATEGORYS[$chlidid][url]}">{$CATEGORYS[$chlidid][catname]}</a>
-			{/loop}
-			</span>
-			</h5>
-            <ul class="photo-list picbig">
-				{pc:content action="lists" catid="$cid" num="10" order="id DESC"}
-					{loop $data $r}
-					<li>
-                    <div class="img-wrap">
-                        <a href="{$r[url]}" title="{$r[title]}" target="_blank"><img src="{thumb($r[thumb],150,112)}" /></a>
-                    </div>
-                    <a href="{$r[url]}" title="{$r[title]}" target="_blank">{str_cut($r[title],28)}</a>
-					</li>
-					{/loop}
-				{/pc}
-            </ul>
-        </div>
-    </div>
-	<div class="bk10"></div>
-	{/loop}
+
+    <div class="zy_right_foot"><img src="{IMG_PATH}zy_right_foot.jpg" /></div>
 </div>
+</div>
+
 {template "content","footer"}
