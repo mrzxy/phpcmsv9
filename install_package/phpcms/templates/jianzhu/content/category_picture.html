@@ -1,4 +1,13 @@
 {template "content","header"}
+<style>
+.next-sub {
+    position: relative;
+    left: 100%;
+    top: -25px;
+    border: 1px solid #ccc;
+    display: none;
+}
+</style>
 <div class="banner2">
     <!--内容页广告开始-->
     <!--内容页广告结束-->
@@ -8,11 +17,35 @@
 <div class="zy_left">
     <div class="zy_fl">
     <div class="zy_fl_top">{$CAT[catname]}<span>RODUCT CATEGORY</span></div>
-        <div class="zy_fl_list">
+        <div class="zy_fl_list" id="cateMenu">
             <ul>
             {pc:content action="category" catid="$catid" num="10" siteid="$siteid" }
                 {loop $data $r}
-                <li><a href="{$r[url]}">{$r[catname]} </a></li>
+                <li>
+                    <a href="{$r[url]}" title="{$r[catname]}">{str_cut($r[catname],24, '...')} </a>
+                    {pc:content action="category" catid="$r[catid]" num="10" siteid="$siteid" }
+                    {if $data}
+                        <ul class="next-sub">
+                            {loop $data $r}
+                            <li>
+                                <a href="{$r[url]}" title="{$r[catname]}">{str_cut($r[catname],24, '...')} </a>
+                                 {pc:content action="category" catid="$r[catid]" num="10" siteid="$siteid" }
+                                    {if $data}
+                                        <ul class="next-sub">
+                                            {loop $data $r}
+                                            <li>
+                                                <a href="{$r[url]}" title="{$r[catname]}">{str_cut($r[catname],24, '...')} </a>
+                                            </li>
+                                            {/loop} 
+                                        </ul>
+                                    {/if}
+                                {/pc}
+                            </li>
+                            {/loop} 
+                        </ul>
+                    {/if}
+                    {/pc}
+                </li>
                 {/loop}
                 {/pc}
             </ul>
@@ -71,5 +104,28 @@
     <div class="zy_right_foot"><img src="{IMG_PATH}zy_right_foot.jpg" /></div>
 </div>
 </div>
+
+<script>
+    var hide = true,
+        oNextUls = $('#cateMenu').find(".next-sub");
+    $('#cateMenu').on('mouseenter', 'a', function() {
+        hide = false
+        var oThis = $(this)
+        oUl = oThis.next()
+        oThis.css('color', '#fe8700')
+        oThis.closest('ul').find(".next-sub").hide();
+        if (oUl.length > 0) {
+            oUl.show();
+        }
+    }).on('mouseleave', 'a', function() {
+        hide = true;
+        $(this).css('color', '#333')
+        setTimeout(function() {
+            hide && oNextUls.hide();
+        }, 300)
+    })
+
+
+</script>
 
 {template "content","footer"}
